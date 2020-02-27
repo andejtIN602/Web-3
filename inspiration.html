@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+     <!-- Dropdown Script -->
+     
+      <script>
+      $(document).ready(function(){
+        $("button").click(function(){
+          $("p").slideToggle();
+        });
+      });
+      </script>
 	<div class="header">
 	<a href="#default" class="logo">CompanyLogo</a>
 	<div class="header-right">
@@ -30,24 +39,35 @@
       <h3><center>Mightyape</center></h3>
 	  <img src="resources/img/ref1.png" class="img-fluid" alt="Responsive image">
       <p>Mightyape's new layout is very clear and easy to navigate.</p>
-      <p>The index page advertises products and categories based on your browsing.</p>
+      <p>The layout of the page, along with the color scheme</p>
+      <button>Expand</button>
+      <br>
+      <a href="https://www.mightyape.co.nz/">Mightyape</a>
+      
     </div>
     <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <h3><center>Student Hub</center></h3>
+        <img src="resources/img/ref2.png" class="img-fluid" alt="Responsive image">
+      <p></p>
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <br>
+      <a href="https://www.op.ac.nz/hub/">Student Hub Site</a>
     </div>
     <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <h3><center>Stats NZ</center></h3>
+      <img src="resources/img/ref3.png" class="img-fluid" alt="Responsive image">      
+      <p>Stats NZ uses the grid format to display stats and links.</p>
+      <p>The information is spread across the page in a even and symetrical layout.</p>
+      <br>
+      <a href="https://www.stats.govt.nz/">Stats NZ</a>
     </div>
   </div>
 </div>
-
-    <!-- Optional JavaScript -->
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </body>
