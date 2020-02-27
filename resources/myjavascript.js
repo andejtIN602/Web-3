@@ -1,7 +1,3 @@
-<script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $("p").slideToggle();
-  });
-});
-</script>
+function alertFunction() {
+	alert("Hello, World!")
+}
