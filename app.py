@@ -2,7 +2,7 @@ from mongoengine import *
 from flask import Flask, render_template
 
 connect('mydb')
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__, static_url_path='static')
 
 class User(Document):
 	email = StringField()
