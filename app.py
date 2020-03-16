@@ -26,13 +26,12 @@ for u in User.objects:
 @app.route('/users', methods=['GET'])
 def index():
 	users = User.objects
-	return render_template('index.html', name=users.objects)
+	return render_template('index.html')
 	return users.to_json()
 	
 @app.route('/inspiration')
 def inspiration():
-	myName = "Jamie"
-	return render_template('inspiration.html', name=myName)
+	return render_template('inspiration.html')
 	
 @app.route('/')
 def homepage():
