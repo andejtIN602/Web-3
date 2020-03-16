@@ -27,7 +27,7 @@ for u in User.objects:
 def index():
 	users = User.objects
 	return render_template('index.html')
-	return users.to_json()
+	#return users.to_json()
 	
 @app.route('/inspiration')
 def inspiration():
@@ -36,7 +36,7 @@ def inspiration():
 @app.route('/')
 def homepage():
 	myName = "Jamie"
-	return render_template('homepage.html', name=myName)
+	return render_template('index.html', name=myName)
 
 #-- Bottom -- 
 if __name__ =="__main__":
