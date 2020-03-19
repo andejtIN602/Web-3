@@ -7,7 +7,7 @@
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- JavaScript -->
-	<script src="resources/myjavascript.js"></script>
+	<script src="{{ url_for('static', filename='js/myjavascript.js') }}"></script>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}"> 
@@ -18,46 +18,39 @@
 	<div class="header">
 		<a href="#default" class="logo">CompanyLogo</a>
 		<div class="header-right">
-			<a href="index.html">Home</a>
-			<a href="#about">About</a>
-			<a class="active" href="inspiration.html">Inspiration</a>
+			<a href="{{ url_for('index') }}">Home</a>
+			<a class="active" href="{{ url_for('inspiration') }}">Inspiration</a>
 		</div>	
 	</div>	
-  
 	<div class="jumbotron text-center">
 		<h1>Inspiration</h1>
 	</div>
-
 	<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3><center>Mightyape</center></h3>
-	  <img src="resources/img/ref1.png" class="img-fluid" alt="Responsive image">
-      <p>Mightyape's new layout is very clear and easy to navigate.</p>
-      <p>The layout of the page, along with the color scheme</p>
-      <button>Expand</button>
-      <br>
-      <a href="https://www.mightyape.co.nz/">Mightyape</a>
-      
-    </div>
+		<div class="row">
+			<div class="col-sm-4">
+				<h3><center>Mightyape</center></h3>
+				<img src="resources/img/ref1.png" class="img-fluid" alt="Responsive image">
+				<p>Mightyape uses images and banners more than text to convey information. With first glance you can see enough information to navigate and browse what you're looking for.</p>	
+				<br>
+				<a href="https://www.mightyape.co.nz/">Mightyape Store</a>
+			</div>
     <div class="col-sm-4">
         <h3><center>Student Hub</center></h3>
         <img src="resources/img/ref2.png" class="img-fluid" alt="Responsive image">
-      <p></p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      <br>
+		<p></p>
+		<p>StudentHub utilizes a basic color scheme of lighter colors which makes navigating easier on the eyes and makes the text information stand out from the background.</p>
+		<br>
       <a href="https://www.op.ac.nz/hub/">Student Hub Site</a>
     </div>
     <div class="col-sm-4">
         <h3><center>Stats NZ</center></h3>
-      <img src="resources/img/ref3.png" class="img-fluid" alt="Responsive image">      
-      <p>Stats NZ uses the grid format to display stats and links.</p>
-      <p>The information is spread across the page in a even and symetrical layout.</p>
-      <br>
-      <a href="https://www.stats.govt.nz/">Stats NZ</a>
+		<img src="resources/img/ref3.png" class="img-fluid" alt="Responsive image">      
+		<p>Stats NZ uses the grid format to display stats and links.</p>
+		<p>The information is spread across the page in a even and symetrical layout.</p>
+		<br>
+		<a href="https://www.stats.govt.nz/">Stats NZ</a>
     </div>
-  </div>
-</div>
-
+		</div>
+	</div>
   </body>
 </html>
