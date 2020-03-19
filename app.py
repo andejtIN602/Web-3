@@ -26,11 +26,11 @@ for u in User.objects:
 @app.route('/index')
 def index():
 	path = os.path.join(app.config['FILES_FOLDER'],"data1.csv")
-f = open(path)
-r = csv.reader(f)
-d = list(r)
-for data in d:
-    print(data)
+	f = open(path)
+	r = csv.reader(f)
+	d = list(r)
+	for data in d:
+		print(data)
 	return render_template('index.html')
 	
 @app.route('/inspiration')
