@@ -23,7 +23,7 @@ for u in User.objects:
 	u['first_name'] = 'Changed'
 	u.save()
 	
-@app.route('/index')
+@app.route('/')
 def index():
 	path = os.path.join(app.config['FILES_FOLDER'],"data1.csv")
 	f = open(path)
