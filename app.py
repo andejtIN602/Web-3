@@ -24,7 +24,22 @@ newzealand.save()
 for u in User.objects:
 	u['first_name'] = 'Changed'
 	u.save()
-	
+
+@app.route('/')
+
+@app.route('/')
+
+@app.route('/signup')
+def signup():
+	return render_template('signup.html'), 200
+
+@app.route('/signupuser', methods=['POST'])
+def signUpUser():
+    user =  request.form['username'];
+    password = request.form['password'];
+    return json.dumps({'status':'OK','user':user,'pass':password});
+
+
 @app.route('/')
 def index():
 	path = os.path.join(app.config['FILES_FOLDER'],"data1.csv")
@@ -33,11 +48,11 @@ def index():
 	d = list(r)
 	for data in d:
 		print(data)
-	return render_template('index.html')
+	return render_template('index.html'), 200
 	
 @app.route('/inspiration')
 def inspiration():
-	return render_template('inspiration.html')
+	return render_template('inspiration.html'), 200
 	
 #-- Bottom -- 
 if __name__ =="__main__":
