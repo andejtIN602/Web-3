@@ -14,6 +14,7 @@ class User(Document):
 
 class Country(Document):
 	name = StringField()
+	data = DictField()
 	
 jamie = User(first_name='Jamie', last_name='Anderson')
 jamie.save()
@@ -25,10 +26,14 @@ for u in User.objects:
 	u['first_name'] = 'Changed'
 	u.save()
 
-@app.route('/')
+@app.route('/countries', methods=['GET'])
+def getCountries
+	countries = Country.Object
+	return countries.to_json(), 200
 
-@app.route('/')
-
+@app.route('/loadData', methods=['GET'])
+def loadData
+	
 @app.route('/signup')
 def signup():
 	return render_template('signup.html'), 200
@@ -42,12 +47,14 @@ def signUpUser():
 
 @app.route('/')
 def index():
-	path = os.path.join(app.config['FILES_FOLDER'],"data1.csv")
-	f = open(path)
-	r = csv.reader(f)
-	d = list(r)
-	for data in d:
-		print(data)
+	for file in os.listdir(app.config['FILES_FOLDER']):
+    filename = os.fsdecode(file)
+    path = os.path.join(app.config['FILES_FOLDER'],filename)
+    f = open(path)
+    r = csv.reader(f)
+    d = list(r)
+    for data in d:
+    print(data)
 	return render_template('index.html'), 200
 	
 @app.route('/inspiration')
