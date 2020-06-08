@@ -8,10 +8,10 @@
 		<script>
 			$.("button").click(function(){
 			$.get("/countries", function(response)){
+				var responseObj = JSON.parse(response);
+				console.log(responseObj);
+				console.log(response);
 				country = response.countries;
-				console.log(response)
-				responseObj = JSON.parse(responseObj)
-				console.log(responseObj)
 				}}.fail(function(response){
 				alert("Resource not found error - 404 Not Found")
 				});
