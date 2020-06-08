@@ -37,14 +37,6 @@ def loadData():
 	
 @app.route('/')
 def index():
-	for file in os.listdir(app.config['FILES_FOLDER']):
-    filename = os.fsdecode(file)
-    path = os.path.join(app.config['FILES_FOLDER'],data1.csv)
-    f = open(path)
-    r = csv.reader(f)
-    d = list(r)
-    for data in d:
-    print(data)
 	return render_template('index.html'), 200
 	
 @app.route('/inspiration')
