@@ -27,7 +27,7 @@ for u in User.objects:
 	u.save()
 
 @app.route('/countries', methods=['GET'])
-def getCountries
+def getCountries():
 	countries = Country.Object
 	return countries.to_json(), 200
 
