@@ -10,10 +10,10 @@
 			$.get("/countries", function(response)){
 				country = response.countries;
 				console.log(response)
-				responseObj = JSON.parse(response)
-				
+				responseObj = JSON.parse(responseObj)
+				console.log(responseObj)
 				}}.fail(function(response){
-				alert("Error loading data from /countries")
+				alert("Resource not found error - 404 Not Found")
 				});
 		</script>
 		<!-- D3.js -->
