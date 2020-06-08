@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Country Button -->
 		<script>
+		function getcountry() {
 			$.("button").click(function(){
 			$.get("/countries", function(response)){
 				var responseObj = JSON.parse(response);
@@ -14,6 +15,8 @@
 				}}.fail(function(response){
 				alert("Resource not found error - 404 Not Found")
 				});
+		}
+			
 		</script>
 		<!-- D3.js -->
 		<script src="https://d3js.org/d3.v5.min.js"></script>
@@ -39,7 +42,7 @@
 		
 	</div>
 	<div id="button">
-		<button>Get country information</button>
+		<button onclick="getcountry">Get country information</button>
 	</div>
   </body>
 </html>
