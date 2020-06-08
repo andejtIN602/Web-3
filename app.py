@@ -28,7 +28,7 @@ for u in User.objects:
 
 @app.route('/countries', methods=['GET'])
 def getCountries():
-	countries = Country.Object
+	countries = Country.objects
 	return countries.to_json(), 200
 
 @app.route('/loadData', methods=['GET'])
@@ -45,12 +45,12 @@ def loadData():
 		for key in data: # iterate through the header keys
 			if key == "country":
 			# check if this country already exists in the db
-			if Country.object(name = data[key]).count() == 0: 
+			if Country.objects(name = data[key]).count() == 0: 
 			country['name'] = data[key]
 			# if the country does not exist, we can use the new blank country we created above, and set the name
 		else:
 			# if the country already exists, replace the blank country with the existing country from the db, and replace the blank dict with the current country's
-			country = Country.object.get(name = data[key])
+			country = Country.objects.get(name = data[key])
 			# data
 			dict = country['data']                
 		else:
@@ -63,7 +63,7 @@ def loadData():
 			country['data'] = dir
 			# save the country
 			country.save()
-	return Country.object.to_json(), 200
+	return Country.objects.to_json(), 200
 
 @app.route('/')
 def index():
