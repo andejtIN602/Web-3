@@ -34,17 +34,6 @@ def getCountries():
 @app.route('/loadData', methods=['GET'])
 def loadData():
 	
-@app.route('/signup')
-def signup():
-	return render_template('signup.html'), 200
-
-@app.route('/signupuser', methods=['POST'])
-def signUpUser():
-    user =  request.form['username'];
-    password = request.form['password'];
-    return json.dumps({'status':'OK','user':user,'pass':password});
-
-
 @app.route('/')
 def index():
 	for file in os.listdir(app.config['FILES_FOLDER']):
