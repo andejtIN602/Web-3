@@ -30,9 +30,6 @@ for u in User.objects:
 def getCountries():
 	countries = Country.Object
 	return countries.to_json(), 200
-
-@app.route('/loadData', methods=['GET'])
-def loadData():
 	
 @app.route('/')
 def index():
