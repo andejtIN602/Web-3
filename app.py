@@ -51,7 +51,7 @@ def index():
                 # check if this country already exists in the db
                 
                 # if the country does not exist, we can use the new blank country we created above, and set the name
-
+				
                 # if the country already exists, replace the blank country with the existing country from the db, and replace the blank dict with the current country's 
                 # data                
             else:
