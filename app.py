@@ -32,7 +32,7 @@ def getCountries():
 	return countries.to_json(), 200
 
 @app.route('/loadData', methods=['GET'])
-def loadData
+def loadData():
 	
 @app.route('/signup')
 def signup():
