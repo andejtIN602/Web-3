@@ -34,8 +34,8 @@ def getCountries():
 @app.route('/loadData', methods=['GET'])
 def loadData():
 	for file in os.listdir(app.config['FILES_FOLDER']):
-		data1.csv = os.fsdecode(file)
-		path = os.path.join(app.config['FILES_FOLDER'],data1.csv)
+		filename = os.fsdecode(file)
+		path = os.path.join(app.config['FILES_FOLDER'],filename)
 		f = open(path)
 		r = csv.DictReader(f) 
 		d = list(r)
