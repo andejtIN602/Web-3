@@ -56,7 +56,7 @@ def loadData():
 						dict[f][key] = data[key] # if it is, just add a new subfield which is key : data[key] (value)
 					else:
 						dict[f] = {key:data[key]} # if it is not, create a new object and assign it to the dict
-					country['data'] = dir
+					country['data'] = dict
 				country.save()
 	return Country.objects.to_json(), 200
 
