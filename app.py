@@ -48,7 +48,7 @@ def loadData():
 						country['name'] = data[key]
 					else:
 						# if the country already exists, replace the blank country with the existing country from the db, and replace the blank dict with the current country's
-						country = Country.object.get(name = data[key])
+						country = Country.objects.get(name = data[key])
 						dict = country['data']                
 				else:
 					f = filename.replace(".csv","") # we want to trim off the ".csv" as we can't save anything with a "." as a mongodb field name
