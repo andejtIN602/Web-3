@@ -16,12 +16,6 @@ class Country(Document):
 	name = StringField()
 	data = DictField()
 	
-jamie = User(email='andejt1@student.op.ac.nz', first_name='Jamie', last_name='Anderson')
-jamie.save()
-
-newzealand = Country(name='New Zealand')
-newzealand.save()
-	
 for u in User.objects:
 	u['first_name'] = 'Changed'
 	u.save()
