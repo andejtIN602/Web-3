@@ -22,8 +22,8 @@ for u in User.objects:
 
 @app.route('/countries', methods=['GET'])
 def getCountries():
-	countries = Country.objects
-	return countries.to_json(), 200
+	country = Country.objects
+	return country.to_json(), 200
 
 @app.route('/loadData', methods=['GET'])
 def loadData():
