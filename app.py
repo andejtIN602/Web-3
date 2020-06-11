@@ -25,6 +25,11 @@ def getCountries():
 	countries = Country.objects
 	return countries.to_json(), 200
 
+@app.route('/allcountry')
+def allCountry():
+	country = Country.object
+	return country.to_json(), 200
+
 @app.route('/loadData', methods=['GET'])
 def loadData():
 	for file in os.listdir(app.config['FILES_FOLDER']):
