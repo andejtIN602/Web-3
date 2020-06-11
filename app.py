@@ -23,7 +23,6 @@ for u in User.objects:
 @app.route('/countries', methods=['GET'])
 def getCountries():
 	countries = Country.objects
-	alert("Success");
 	return countries.to_json(), 200
 
 @app.route('/loadData', methods=['GET'])
