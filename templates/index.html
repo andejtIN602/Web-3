@@ -12,11 +12,20 @@
 				var responseObj = JSON.parse(response);
 				console.log(responseObj);
 				console.log(response);
-				alert("success");
-				}}.fail(function(response){
-				alert("Resource not found error - 404 Not Found");
+				// Container for 'g'
+				var g = d3.select("svg").selectAll("g").data(responseObj);
+				// 'g' element for each country
+				var en . = g.enter().append("g")
+					.attr("transform",function(d){
+					return "translate("+ (Math.random() * 100) + 40 + "," + (Math.random() * 100) + 40 +")" 
 				});
-		}	
+				//add a circle to each 'g'
+				var circle = en.append("circle")
+				.attr("r",function(d){ return Math.random() * 20 })
+				.attr("fill",function(d,i){ return i % 2 == 0 ? "red" : "blue" });
+				// add a text to each 'g'
+				en.append("text").text(function(d){ return d.name });
+			}}}
 		</script>
 		<!-- D3.js -->
 		<script src="https://d3js.org/d3.v5.min.js"></script>
@@ -30,6 +39,7 @@
 		<title>andejt1</title>
 	</head>
 	<body onload="alertFunction()">
+	 <svg id="svgVisualize" width="500" height="500"></svg>
 	<!-- Header | Navigation -->
 	<div class="header">
 		<a href="#default" class="logo"></a>
