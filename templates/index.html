@@ -7,7 +7,6 @@
 		<!-- Country Button -->
 		<script>
 		function getcountry() {
-			$.("button").click(function(){
 			$.get("/countries", function(response)){
 				var responseObj = JSON.parse(response);
 				console.log(responseObj);
@@ -25,7 +24,7 @@
 				.attr("fill",function(d,i){ return i % 2 == 0 ? "red" : "blue" });
 				// add a text to each 'g'
 				en.append("text").text(function(d){ return d.name });
-			}}}
+			}}
 		</script>
 		<!-- D3.js -->
 		<script src="https://d3js.org/d3.v5.min.js"></script>
