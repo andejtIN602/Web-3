@@ -48,6 +48,7 @@ def loadData():
 						dict[f] = {key:data[key]} # if it is not, create a new object and assign it to the dict
 					country['data'] = dict
 				country.save()
+				print("saved")
 	return Country.objects.to_json(), 200
 
 @app.route('/') #All 3 routes redirect to the index page
