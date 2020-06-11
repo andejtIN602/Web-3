@@ -6,31 +6,22 @@ import csv
 connect('mydb')
 app = Flask(__name__)
 app.config.from_object('config')
-
+#Class to store user data in the database
 class User(Document):
 	email = StringField()
 	first_name = StringField()
 	last_name = StringField()
-
+#Class to store country data in the database
 class Country(Document):
 	name = StringField()
 	data = DictField()
 	
-for u in User.objects:
-	u['first_name'] = 'Changed'
-	u.save()
-
 @app.route('/countries', methods=['GET'])
 def getCountries():
 	countries = Country.objects
 	return countries.to_json(), 200
 
-@app.route('/allcountry')
-def allCountry():
-	country = Country.objects
-	return country.to_json(), 200
-
-@app.route('/loadData', methods=['GET'])
+@app.route('/loadData', methods=['GET']) #utility route that loads data from the .csv files and adds them to the database collection.
 def loadData():
 	for file in os.listdir(app.config['FILES_FOLDER']):
 		filename = os.fsdecode(file)
@@ -46,7 +37,7 @@ def loadData():
 					if Country.objects(name = data[key]).count() == 0: 
 						country['name'] = data[key]
 					else:
-						# if the country already exists, replace the blank country with the existing country from the db, and replace the blank dict with the current country's
+						# if the country already exists, replace the blank country with the existing country from the db, and replace the blank dict with the current countries
 						country = Country.objects.get(name = data[key])
 						dict = country['data']                
 				else:
@@ -59,9 +50,11 @@ def loadData():
 				country.save()
 	return Country.objects.to_json(), 200
 
-@app.route('/')
+@app.route('/') #All 3 routes redirect to the index page
+@app.route('/index')
+@app.route('/home')
 def index():
-	return render_template('index.html'), 200
+	return render_template('index.html'), 200	
 	
 @app.route('/inspiration')
 def inspiration():
