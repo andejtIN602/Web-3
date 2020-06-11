@@ -27,7 +27,7 @@ def getCountries():
 
 @app.route('/allcountry')
 def allCountry():
-	country = Country.object
+	country = Country.objects
 	return country.to_json(), 200
 
 @app.route('/loadData', methods=['GET'])
