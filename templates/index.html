@@ -94,6 +94,7 @@
           .enter()
           .append("circle")
           .attr("cx", function(d) {
+			console.log(d);
             return x(d.lifeExp);
           })
           .attr("cy", function(d) {
@@ -106,10 +107,9 @@
           .style("opacity", "0.7")
           .attr("stroke", "black");
         // add a text to each 'g'
-        en.append("text").text(function(d) {
-          return d.name;
+       // en.append("text").text(function(d) {
+        
         });
-      });
     </script>
   </body>
 </html>
