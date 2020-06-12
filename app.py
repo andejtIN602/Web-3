@@ -29,7 +29,6 @@ def loadData():
 		f = open(path)
 		r = csv.DictReader(f) 
 		d = list(r)
-		print("File " + filename)
 		for data in d:
 			country = Country() # a blank placeholder country
 			dict = {} # a blank placeholder data dict
@@ -42,13 +41,15 @@ def loadData():
 						country = Country.objects.get(name = data[key])
 						dict = country['data']                
 				else:
+					print (key)
+					print (data[key])
 					f = filename.replace(".csv","") # we want to trim off the ".csv" as we can't save anything with a "." as a mongodb field name
 					if f in dict: # check if this filename is already a field in the dict
 						dict[f][key] = data[key] # if it is, just add a new subfield which is key : data[key] (value)
 					else:
 						dict[f] = {key:data[key]} # if it is not, create a new object and assign it to the dict
-					country['data'] = dict
-				country.save()
+				country['data'] = dict
+			country.save()
 	return Country.objects.to_json(), 200
 
 @app.route('/') #All 3 routes redirect to the index page
