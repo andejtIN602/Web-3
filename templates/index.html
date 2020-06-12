@@ -97,10 +97,10 @@
           .enter()
           .append("circle")
           .attr("cx", function(d) {
-            return x(d.gdpPercap);
+            return x(d.lifeExp);
           })
           .attr("cy", function(d) {
-            return y(d.lifeExp);
+            return y(d.fertility);
           })
           .attr("r", function(d) {
             return z(d.pop);
