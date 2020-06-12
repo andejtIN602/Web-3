@@ -90,10 +90,7 @@
           .range([1, 40]);
 
         // Add dots
-        svg
-          .append("g")
-          .selectAll("dot")
-          .data(data)
+		g
           .enter()
           .append("circle")
           .attr("cx", function(d) {
