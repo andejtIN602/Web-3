@@ -29,6 +29,7 @@ def loadData():
 		f = open(path)
 		r = csv.DictReader(f) 
 		d = list(r)
+		print("File " + filename)
 		for data in d:
 			country = Country() # a blank placeholder country
 			dict = {} # a blank placeholder data dict
@@ -48,7 +49,6 @@ def loadData():
 						dict[f] = {key:data[key]} # if it is not, create a new object and assign it to the dict
 					country['data'] = dict
 				country.save()
-				print("saved")
 	return Country.objects.to_json(), 200
 
 @app.route('/') #All 3 routes redirect to the index page

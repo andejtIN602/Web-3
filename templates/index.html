@@ -1,90 +1,118 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Country Button -->
-		<!-- D3.js -->
-		<script src="https://d3js.org/d3.v5.min.js"></script>
-		<!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<!-- JavaScript -->
-		<script src="{{ url_for('static', filename='js/myjavascript.js')}}"></script>
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}"> 
-		<title>andejt1</title>
-	</head>
-	<body>
-	<!-- Header | Navigation -->
-	<div class="header">
-		<a href="#default" class="logo"></a>
-		<div class="header-right">
-			<a class="active" href="{{ url_for('index') }}">Home</a>
-			<a href="{{ url_for('inspiration') }}">Inspiration</a>
-		</div>
-	</div>
-	<!-- Chart Div -->
-	<div id="chart"></div>
-	<script>
-	$.get("/countries", function(response)){
-				var responseObj = JSON.parse(response);
-				console.log(responseObj);
-				console.log(response);
-	//Dimensions and margins of the graph
-	var margin = {top: 10, right: 20, bottom: 30, left: 50},
-		width = 500 - margin.left - margin.right,
-		height = 420 - margin.top - margin.bottom;
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Country Button -->
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/myjavascript.js')}}"></script>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/stylesheet.css') }}"
+    />
+    <title>andejt1</title>
+  </head>
+  <body>
+    <!-- Header | Navigation -->
+    <div class="header">
+      <a href="#default" class="logo"></a>
+      <div class="header-right">
+        <a class="active" href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('inspiration') }}">Inspiration</a>
+      </div>
+    </div>
+    <!-- Chart Div -->
+    <div id="chart"></div>
+    <script>
+      $.get("/countries", function(response) {
+        var responseObj = JSON.parse(response);
+        console.log(responseObj);
+        console.log(response);
+        //Dimensions and margins of the graph
+        var margin = { top: 10, right: 20, bottom: 30, left: 50 },
+          width = 500 - margin.left - margin.right,
+          height = 420 - margin.top - margin.bottom;
 
-	// append the svg object to the body of the page
-	var svg = d3.select("#chart")
-	.append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-	.append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+        // append the svg object to the body of the page
+        var svg = d3
+          .select("#chart")
+          .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr(
+            "transform",
+            "translate(" + margin.left + "," + margin.top + ")"
+          );
 
-	//Read data from collection in database
-	var g = d3.select("svg").selectAll("g").data(responseObj);
+        //Read data from collection in database
+        var g = d3
+          .select("svg")
+          .selectAll("g")
+          .data(responseObj);
 
-	// Add X axis
-	var x = d3.scaleLinear()
-		.domain([0, 10000])
-		.range([ 0, width ]);
-		svg.append("g")
-		.attr("transform", "translate(0," + height + ")")
-		.call(d3.axisBottom(x));
+        // Add X axis
+        var x = d3
+          .scaleLinear()
+          .domain([0, 10000])
+          .range([0, width]);
+        svg
+          .append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
 
-  // Add Y axis
-  var y = d3.scaleLinear()
-    .domain([35, 90])
-    .range([ height, 0]);
-  svg.append("g")
-    .call(d3.axisLeft(y));
+        // Add Y axis
+        var y = d3
+          .scaleLinear()
+          .domain([35, 90])
+          .range([height, 0]);
+        svg.append("g").call(d3.axisLeft(y));
 
-  // Add a scale for bubble size
-  var z = d3.scaleLinear()
-    .domain([200000, 1310000000])
-    .range([ 1, 40]);
+        // Add a scale for bubble size
+        var z = d3
+          .scaleLinear()
+          .domain([200000, 1310000000])
+          .range([1, 40]);
 
-  // Add dots
-  svg.append('g')
-    .selectAll("dot")
-    .data(data)
-    .enter()
-    .append("circle")
-      .attr("cx", function (d) { return x(d.gdpPercap); } )
-      .attr("cy", function (d) { return y(d.lifeExp); } )
-      .attr("r", function (d) { return z(d.pop); } )
-      .style("fill", "#69b3a2")
-      .style("opacity", "0.7")
-      .attr("stroke", "black")
-	  // add a text to each 'g'
-		en.append("text").text(function(d){ return d.name });
-})
-</script>
-
-</body>
+        // Add dots
+        svg
+          .append("g")
+          .selectAll("dot")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("cx", function(d) {
+            return x(d.gdpPercap);
+          })
+          .attr("cy", function(d) {
+            return y(d.lifeExp);
+          })
+          .attr("r", function(d) {
+            return z(d.pop);
+          })
+          .style("fill", "#69b3a2")
+          .style("opacity", "0.7")
+          .attr("stroke", "black");
+        // add a text to each 'g'
+        en.append("text").text(function(d) {
+          return d.name;
+        });
+      });
+    </script>
+  </body>
 </html>
