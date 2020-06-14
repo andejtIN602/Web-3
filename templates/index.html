@@ -60,29 +60,6 @@
             "translate(" + margin.left + "," + margin.top + ")"
           );
 		
-		  // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
-		var showTooltip = function(d) {
-    	tooltip
-      	  .transition()
-      	  .duration(200)
-    	tooltip
-      	  .style("opacity", 1)
-      	  .html("Country: " + d.name)
-      	  .style("left", (d3.mouse(this)[0]+30) + "px")
-      	  .style("top", (d3.mouse(this)[1]+30) + "px")
-  		  }
-  		var moveTooltip = function(d) {
-    	tooltip
-      	  .style("left", (d3.mouse(this)[0]+30) + "px")
-      	  .style("top", (d3.mouse(this)[1]+30) + "px")
-  		  }
-  		var hideTooltip = function(d) {
-    	tooltip
-      	  .transition()
-      	  .duration(200)
-      	  .style("opacity", 0)
-  		  }
-
         //Read data from collection in database
         var g = d3
           .select("svg")
@@ -132,11 +109,6 @@
           .style("fill", "#69b3a2")
           .style("opacity", "0.7")
           .attr("stroke", "black");
-		    // -3- Trigger the functions
-		  .on("mouseover", showTooltip )
-       	  .on("mousemove", moveTooltip )
-    	  .on("mouseleave", hideTooltip )
-	   
 	    // add a text to each 'g'
        // en.append("text").text(function(d) {
         
