@@ -96,12 +96,12 @@
           .append("circle")
           .attr("cx", function(d) {
 			console.log(d);
-			if(d && d.data && d.data[dataset1] && d.data[dataset1][1900])
-            return x(d.data[dataset1][1900]);//swap for whatever word
+			if(d && d.data && d.data[dataset1] && d.data[dataset1][2000])
+            return x(d.data[dataset1][2000]);//swap for whatever word
           })
           .attr("cy", function(d) {
-			if(d && d.data && d.data[dataset2] && d.data[dataset2][1900])
-            return y(d.data[dataset2][1900]);//swap for whatever word
+			if(d && d.data && d.data[dataset2] && d.data[dataset2][2000])
+            return y(d.data[dataset2][2000]);//swap for whatever word
           })
           .attr("r", function(d) {
             return 20;
