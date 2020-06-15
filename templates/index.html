@@ -140,8 +140,8 @@
 					  
 					  //Read data from collection in database
 					  var g2 = d3
-						.select("svg")
-						.selectAll("g")
+						.select("svg2")
+						.selectAll("g2")
 						.data(responseObj);
 			  
 					  // Add X axis
@@ -149,8 +149,8 @@
 						.scaleLinear()
 						.domain([0, 500])
 						.range([0, width2]);
-					  svg
-						.append("g")
+					  svg2
+						.append("g2")
 						.attr("transform", "translate(0," + height2 + ")")
 						.call(d3.axisBottom(x));
 			  
@@ -159,7 +159,7 @@
 						.scaleLinear()
 						.domain([0, 10])
 						.range([height2, 0]);
-					  svg.append("g").call(d3.axisLeft(y));
+					  svg2.append("g2").call(d3.axisLeft(y));
 			  
 					  // Add a scale for bubble size
 					  var z2 = d3
