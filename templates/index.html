@@ -126,7 +126,8 @@
 				  // add a text to each 'g'
 				 // en.append("text").text(function(d) {
 				  });
-	}else if(document.getElementById('option2').value == "option2"){
+	} 
+	if(document.getElementById('option2').value == "option2"){
 		$.get("/countries", function(response) {
 				  var responseObj = JSON.parse(response);
 				  console.log(responseObj);
