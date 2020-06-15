@@ -36,17 +36,7 @@
 		<a href="{{ url_for('inspiration') }}">Inspiration</a>
       </div>
 	</div>
-	<div>
-			<label for="data">Choose data</label>
-
-			<select id="data">
-			  <option value="option1" id="option1" >Fertility / Mortality (under/5 per 1000 | children per woman)</option>
-			  <option value="option2" id="option2">Life expectancy / Fertility (Year | Fertility per woman)</option>
-			</select>
-	</div>
-
 	<!-- button -->
-	
 	<!-- Chart Div -->
 	<div id="chart"></div>
 	<div id="chart2"></div>
@@ -132,47 +122,47 @@
 					  console.log(responseObj);
 					  console.log(response);
 					  //Dimensions and margins of the graph
-					  var margin = { top: 10, right: 20, bottom: 30, left: 50 },
-						width = 500 - margin.left - margin.right,
-						height = 420 - margin.top - margin.bottom;
+					  var margin2 = { top: 10, right: 20, bottom: 30, left: 50 },
+						width2 = 500 - margin2.left - margin2.right,
+						height2 = 420 - margin2.top - margin2.bottom;
 			  
 					  // append the svg object to the body of the page
-					  var svg = d3
+					  var svg2 = d3
 						.select("#chart2")
-						.append("svg")
-						.attr("width", width + margin.left + margin.right)
-						.attr("height", height + margin.top + margin.bottom)
+						.append("svg2")
+						.attr("width2", width2 + margin2.left + margin2.right)
+						.attr("height2", height2 + margin2.top + margin2.bottom)
 						.append("g")
 						.attr(
 						  "transform",
-						  "translate(" + margin.left + "," + margin.top + ")"
+						  "translate(" + margin2.left + "," + margin2.top + ")"
 						);
 					  
 					  //Read data from collection in database
-					  var g = d3
+					  var g2 = d3
 						.select("svg")
-						.selectAll("g")
+						.selectAll("g2")
 						.data(responseObj);
 			  
 					  // Add X axis
-					  var x = d3
+					  var x2 = d3
 						.scaleLinear()
 						.domain([0, 500])
-						.range([0, width]);
-					  svg
-						.append("g")
+						.range([0, width2]);
+					  svg2
+						.append("g2")
 						.attr("transform", "translate(0," + height + ")")
 						.call(d3.axisBottom(x));
 			  
 					  // Add Y axis
-					  var y = d3
+					  var y2 = d3
 						.scaleLinear()
 						.domain([0, 10])
 						.range([height, 0]);
-					  svg.append("g").call(d3.axisLeft(y));
+					  svg.append("g2").call(d3.axisLeft(y));
 			  
 					  // Add a scale for bubble size
-					  var z = d3
+					  var z2 = d3
 						.scaleLinear()
 						.domain([200000, 1310000000])
 						.range([4, 40]);
@@ -180,7 +170,7 @@
 					  var dataset1 = "data2";
 					  var dataset2 = "data3";
 					  // Add dots
-					  g
+					  g2
 						.enter()
 						.append("circle")
 						.attr("cx", function(d) {
