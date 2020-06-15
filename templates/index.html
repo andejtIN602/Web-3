@@ -86,7 +86,7 @@
 				  var y = d3
 					.scaleLinear()
 					.domain([0, 16])
-					.range([height, 0]);
+					.range([height + margin.bottom, 0]);
 				  svg.append("g").call(d3.axisLeft(y));
 		  
 				  // Add a scale for bubble size
