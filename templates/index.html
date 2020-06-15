@@ -35,10 +35,13 @@
         <a class="active" href="{{ url_for('index') }}">Home</a>
         <a href="{{ url_for('inspiration') }}">Inspiration</a>
       </div>
-    </div>
+	</div>
+	<!-- button -->
+	<button onclick="option1()">Click me</button>
     <!-- Chart Div -->
     <div id="chart"></div>
     <script>
+		function option1(){
       $.get("/countries", function(response) {
         var responseObj = JSON.parse(response);
         console.log(responseObj);
@@ -113,6 +116,7 @@
        // en.append("text").text(function(d) {
         
         });
+		}
     </script>
   </body>
 </html>
