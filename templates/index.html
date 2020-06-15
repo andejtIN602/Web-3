@@ -108,7 +108,7 @@
 					})
 					.attr("cy", function(d) {
 					  if(d && d.data && d.data[dataset2] && d.data[dataset2][2016])
-					  return y(-d.data[dataset2][2016]);//swap for whatever word
+					  return y(height - d.data[dataset2][2016]);//swap for whatever word
 					})
 					.attr("r", function(d) {
 					  return 5;
