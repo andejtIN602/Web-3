@@ -176,11 +176,11 @@
 						.attr("cx", function(d) {
 						  console.log(d);
 						  if(d && d.data && d.data[dataset1] && d.data[dataset1][1800])
-						  return x(d.data[dataset1][1800]);//swap for whatever word
+						  return x2(d.data[dataset1][1800]);//swap for whatever word
 						})
 						.attr("cy", function(d) {
 						  if(d && d.data && d.data[dataset2] && d.data[dataset2][1800])
-						  return y(d.data[dataset2][1800]);//swap for whatever word
+						  return y2(d.data[dataset2][1800]);//swap for whatever word
 						})
 						.attr("r", function(d) {
 						  return 20;
