@@ -25,7 +25,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/stylesheet.css') }}"
     />
-    <title>andejt1</title>
+    <title>Andejt1 Data Visualization</title>
   </head>
   <body>
     <!-- Header | Navigation -->
@@ -61,6 +61,11 @@
 					  "translate(" + margin.left + "," + margin.top + ")"
 					);
 				  
+				  // Define the div for the tooltip
+					var div = d3.select("body").append("div")	
+    				.attr("class", "tooltip")				
+    				.style("opacity", 0);
+
 				  //Read data from collection in database
 				  var g = d3
 					.select("svg")
