@@ -42,6 +42,9 @@
     <!-- Chart Div -->
 	<div id="chart"></div>
 	<!-- Option 1 -->
+	if (option1()){
+
+	}
     <script>
       $.get("/countries", function(response) {
         var responseObj = JSON.parse(response);
@@ -84,7 +87,7 @@
         var y = d3
           .scaleLinear()
           .domain([0, 10])
-          .range([height, 0]);
+          .range([height, d.data]);
         svg.append("g").call(d3.axisLeft(y));
 
         // Add a scale for bubble size
