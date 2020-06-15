@@ -49,6 +49,7 @@
 	
 	<!-- Chart Div -->
 	<div id="chart"></div>
+	<div id="chart2"></div>
 	<script>
 	if(document.getElementById('option1').value == "option1")
 	{
@@ -127,7 +128,7 @@
 				 // en.append("text").text(function(d) {
 				  });
 	} 
-	if(document.getElementById('option2').value == "option2"){
+	else if(document.getElementById('option2').value == "option2"){
 		$.get("/countries", function(response) {
 				  var responseObj = JSON.parse(response);
 				  console.log(responseObj);
@@ -139,7 +140,7 @@
 		  
 				  // append the svg object to the body of the page
 				  var svg = d3
-					.select("#chart")
+					.select("#chart2")
 					.append("svg")
 					.attr("width", width + margin.left + margin.right)
 					.attr("height", height + margin.top + margin.bottom)
