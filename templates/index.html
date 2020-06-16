@@ -103,13 +103,13 @@
 					.attr("cx", function(d) {
 					  console.log(d);
 					  if(d && d.data && d.data[dataset1] && d.data[dataset1][2016])
-					  	return x(d.data[dataset1][2016]);//swap for whatever word
+					  	return x(d.data[dataset1][2016]);//Returns the value for cx for data from dataset1 in the year 2016
 					  else	  
 					  	return x(0)
 					})
 					.attr("cy", function(d) {
 					  if(d && d.data && d.data[dataset2] && d.data[dataset2][2016])
-					  	return y(d.data[dataset2][2016]);//swap for whatever word
+					  	return y(height - d.data[dataset2][2016]);//Returns the value for cy for data from dataset2 in the year 2016
 					  else		  
 					  	return y(0)
 					})
