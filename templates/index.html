@@ -56,10 +56,8 @@
 					.attr("width", width + margin.left + margin.right)
 					.attr("height", height + margin.top + margin.bottom)
 					.append("g")
-					.attr(
-					  "transform",
-					  "translate(" + margin.left + "," + margin.top + ")"
-					);
+					.attr("transform",
+						  "translate(" + margin.left + "," + margin.top + ")");
 				  
 				  // Define the div for the tooltip
 				  var div = d3.select("body").append("div")	
@@ -87,7 +85,8 @@
 					.scaleLinear()
 					.domain([0, 15])
 					.range([height, 0]);
-				  svg.append("g").call(d3.axisLeft(y));
+				  svg.append("g")
+				  	.call(d3.axisLeft(y));
 		  
 				  // Add a scale for bubble size
 				  var z = d3
@@ -110,7 +109,7 @@
 					})
 					.attr("cy", function(d) {
 					  if(d && d.data && d.data[dataset2] && d.data[dataset2][2016])
-					  	return y(d.data[dataset2][2016] + margin.left);//swap for whatever word
+					  	return y(d.data[dataset2][2016]);//swap for whatever word
 					  else		  
 					  	return y(0)
 					})
