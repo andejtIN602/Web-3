@@ -110,7 +110,7 @@
 					})
 					.attr("cy", function(d) {
 					  if(d && d.data && d.data[dataset2] && d.data[dataset2][2016])
-					  	return y(d.data[dataset2][2016]);//swap for whatever word
+					  	return y(d.data[dataset2][2016] + margin.left);//swap for whatever word
 					  else		  
 					  	return y(0)
 					})
