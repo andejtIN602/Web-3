@@ -109,7 +109,7 @@
 					})
 					.attr("cy", function(d) {
 					  if(d && d.data && d.data[dataset2] && d.data[dataset2][2016])
-					  	return y(height - d.data[dataset2][2016]);//Returns the value for cy for data from dataset2 in the year 2016
+					  	return y(height + d.data[dataset2][2016]);//Returns the value for cy for data from dataset2 in the year 2016
 					  else		  
 					  	return y(0)
 					})
