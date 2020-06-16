@@ -74,7 +74,7 @@
 				  var x = d3
 					.scaleLinear()
 					.domain([0, 100])
-					.range([0, width]);
+					.range([margin.left, width]);
 				  svg
 					.append("g")
 					.attr("transform", "translate(0," + height + ")")
@@ -103,7 +103,7 @@
 					.attr("cx", function(d) {
 					  console.log(d);
 					  if(d && d.data && d.data[dataset1] && d.data[dataset1][2016])
-					  	return x(margin.left + d.data[dataset1][2016]);//Returns the value for cx for data from dataset1 in the year 2016
+					  	return x(d.data[dataset1][2016]);//Returns the value for cx for data from dataset1 in the year 2016
 					  else	  
 					  	return x(0)
 					})
