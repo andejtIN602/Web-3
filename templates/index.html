@@ -74,7 +74,7 @@
 				  var x = d3
 					.scaleLinear()
 					.domain([0, 100])
-					.range([margin.left - 20, width]);
+					.range([margin.left, width]);
 				  svg
 					.append("g")
 					.attr("transform",
@@ -85,7 +85,7 @@
 				  var y = d3
 					.scaleLinear()
 					.domain([0, 15])
-					.range([height, 0]);
+					.range([height, margin.bottom]);
 				  svg.append("g")
 				  	.call(d3.axisLeft(y));
 		  
