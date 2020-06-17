@@ -74,7 +74,7 @@
 				  var x = d3
 					.scaleLinear()
 					.domain([0, 100])
-					.range([-20, width]);
+					.range([0, width]);
 				  svg
 					.append("g")
 					.attr("transform", "translate(0," + height + ")")
@@ -96,7 +96,8 @@
 	
 				  var dataset1 = "data1";
 				  var dataset2 = "data2";
-				  // Add dots
+				  var dataset3 = "data3";
+				  // Plots data representing data to chart
 				  g
 					.enter()
 					.append("circle")
@@ -114,7 +115,7 @@
 					  	return y(0)
 					})
 					.attr("r", function(d) {
-					  return 3;
+					  return r(d.data[dataset3][2016]);;
 					})
 					.style("fill", "#69b3a2")
 					.style("opacity", "0.6")
