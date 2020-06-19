@@ -110,7 +110,7 @@
 					.domain([200000, 131000000])
 					.range([3, 30]);
 	
-				  var dataset1 = document.getElementById(vardata).value; //Oil production per person (Tonnes)
+				  var dataset1 = document.getElementById(vardata).selectedIndex(document.getElementsByTagName("option")[x].value); //Oil production per person (Tonnes)
 				  var dataset2 = "data2"; //Oil consumption per person (Tonnes)
 				  // Plots data representing data to chart
 				  g
