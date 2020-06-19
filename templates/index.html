@@ -74,60 +74,6 @@
       		.text("Oil Cons per person (Tonnes)")
       		.attr("text-anchor", "start")
 
-				    // ---------------------------//
-  					//      TOOLTIP               //
-  					// ---------------------------//
-
-  				// -1- Create a tooltip div that is hidden by default:
-  				var tooltip = d3.select("#chart")
-    			.append("div")
-      		.style("opacity", 0)
-      		.attr("class", "tooltip")
-      		.style("background-color", "black")
-      		.style("border-radius", "5px")
-      		.style("padding", "10px")
-      		.style("color", "white")
-
-					// -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
-					var showTooltip = function(d) {
-					tooltip
-					.transition()
-					.duration(200)
-					tooltip
-					.style("opacity", 1)
-					.html("Country: " + d.country)
-					.style("left", (d3.mouse(this)[0]+30) + "px")
-					.style("top", (d3.mouse(this)[1]+30) + "px")
-					}
-					var moveTooltip = function(d) {
-					tooltip
-					.style("left", (d3.mouse(this)[0]+30) + "px")
-					.style("top", (d3.mouse(this)[1]+30) + "px")
-					}
-					var hideTooltip = function(d) {
-					tooltip
-					.transition()
-					.duration(200)
-					.style("opacity", 0)
-					}
-					
-					  // ---------------------------//
-						//       HIGHLIGHT GROUP      //
-						// ---------------------------//
-
-						// What to do when one group is hovered
-						var highlight = function(d){
-						// reduce opacity of all groups
-						d3.selectAll(".bubbles").style("opacity", .05)
-						// expect the one that is hovered
-						d3.selectAll("."+d).style("opacity", 1)
-						}
-
-						// And when it is not hovered anymore
-						var noHighlight = function(d){
-						d3.selectAll(".bubbles").style("opacity", 1)
-						}
-
 				  //Read data from collection in database
 				  var g = d3
 					.select("svg")
