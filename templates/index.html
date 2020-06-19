@@ -76,7 +76,7 @@
 					.range([0, width]);
 				  svg
 					.append("g")
-					.attr("transform", "translate(0," + height + ")")
+					.attr("transform", "translate(30," + height + ")")
 					.call(d3.axisBottom(x));
 		  
 				  // Add Y axis
@@ -92,9 +92,9 @@
 					.domain([200000, 131000000])
 					.range([3, 30]);
 	
-				  var dataset1 = "data1";
-				  var dataset2 = "data2";
-				  var dataset3 = "data3";
+				  var dataset1 = "data1"; //Oil production per person (Tonnes)
+				  var dataset2 = "data2"; //Oil consumption per person (Tonnes)
+				  var dataset3 = "data3"; //Country Population
 				  // Plots data representing data to chart
 				  g
 					.enter()
