@@ -38,6 +38,13 @@
 	</div>
 	<!-- button -->
 	<!-- Chart Div -->
+	<label for="vardata">Choose Data to compare:</label>
+
+	<select id="vardata">
+  <option value="data1">Oil production</option>
+  <option value="data3">Population</option>
+	</select>
+  
 	<div id="chart"></div>
 	<script>
 		//Ajax get function to grab data from mongo
@@ -103,9 +110,8 @@
 					.domain([200000, 131000000])
 					.range([3, 30]);
 	
-				  var dataset1 = "data1"; //Oil production per person (Tonnes)
+				  var dataset1 = document.getElementById(vardata).options.value; //Oil production per person (Tonnes)
 				  var dataset2 = "data2"; //Oil consumption per person (Tonnes)
-				  var dataset3 = "data3"; //Country Population
 				  // Plots data representing data to chart
 				  g
 					.enter()
@@ -115,7 +121,7 @@
 					  if(d && d.data && d.data[dataset1] && d.data[dataset1][2016])
 					  	return x(d.data[dataset1][2016]) + 30;//Returns the value for cx for data from dataset1 in the year 2016
 					  else	  
-					  	return x(30) 
+					  	return x(30)//Because of the left margin start point being 30 for x to appear @ 0 on the X-axis 
 					})
 					.attr("cy", function(d) {
 					  if(d && d.data && d.data[dataset2] && d.data[dataset2][2016])
