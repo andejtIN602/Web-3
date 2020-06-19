@@ -57,7 +57,14 @@
 					.append("g")
 					.attr("transform",
 						  "translate(" + margin.left + "," + margin.top + ")");
-				  
+					
+					// Add X axis label:
+					svg.append("text")
+      		.attr("text-anchor", "end")
+      		.attr("x", width)
+      		.attr("y", height+50 )
+      		.text("Gdp per Capita");		
+
 				  // Define the div for the tooltip
 				  var div = d3.select("body").append("div")	
     				.attr("class", "tooltip")				
