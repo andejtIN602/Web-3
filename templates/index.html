@@ -56,7 +56,7 @@
 					.attr("height", height)
 					.append("g")
 					.attr("transform",
-						  "translate(" + 0 + "," + margin.top + ")");
+						  "translate(0" + "," + margin.top + ")");
 				  
 				  // Define the div for the tooltip
 				  var div = d3.select("body").append("div")	
@@ -70,8 +70,9 @@
 					.data(responseObj);
 		  
 				  // Add X axis
-				  var x = d3.scaleLinear()
-					.domain([0, 50])
+					var x = d3
+					.scaleLinear()
+					.domain([0, 100])
 					.range([0, width]);
 				  svg
 					.append("g")
@@ -79,7 +80,8 @@
 					.call(d3.axisBottom(x));
 		  
 				  // Add Y axis
-				  var y = d3.scaleLinear()
+					var y = d3
+					.scaleLinear()
 					.domain([0, 15])
 					.range([height, 0]);
 				  svg.append("g")
