@@ -38,13 +38,6 @@
 	</div>
 	<!-- button -->
 	<!-- Chart Div -->
-	<label for="vardata">Choose Data to compare:</label>
-
-	<select id="vardata">
-  <option value="data1">Oil production</option>
-  <option value="data3">Population</option>
-	</select>
-  
 	<div id="chart"></div>
 	<script>
 		//Ajax get function to grab data from mongo
@@ -110,7 +103,7 @@
 					.domain([200000, 131000000])
 					.range([3, 30]);
 	
-				  var dataset1 = document.getElementsByTagName("option")[x].value; //Oil production per person (Tonnes)
+				  var dataset1 = "data1"; //Oil production per person (Tonnes)
 				  var dataset2 = "data2"; //Oil consumption per person (Tonnes)
 				  // Plots data representing data to chart
 				  g
